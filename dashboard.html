@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>GMAO Pro | لوحة التحكم</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app">
+        <!-- الشريط العلوي -->
+        <nav class="navbar">
+            <div class="logo">🏭 GMAO PRO</div>
+            <div style="display: flex; gap: 16px; align-items: center;">
+                <span id="userName" style="color: var(--gray);"></span>
+                <button onclick="logout()" class="btn btn-outline" style="padding: 8px 16px;">تسجيل خروج</button>
+            </div>
+        </nav>
+        
+        <!-- المحتوى الرئيسي -->
+        <div style="display: grid; grid-template-columns: 260px 1fr; gap: 24px;">
+            <!-- القائمة الجانبية -->
+            <div class="sidebar">
+                <div class="sidebar-item active">📊 لوحة التحكم</div>
+                <div class="sidebar-item">⚙️ الآلات</div>
+                <div class="sidebar-item">🔧 البلاغات</div>
+                <div class="sidebar-item">📅 الصيانة الوقائية</div>
+                <div class="sidebar-item">📦 قطع الغيار</div>
+                <div class="sidebar-item">👥 الفنيين</div>
+                <div class="sidebar-item">📍 المواقع</div>
+                <div class="sidebar-item">🤝 الموردين</div>
+                <div class="sidebar-item">📈 التقارير</div>
+                <div class="sidebar-item">⚙️ الإعدادات</div>
+            </div>
+            
+            <!-- المحتوى -->
+            <div>
+                <!-- بطاقات الإحصائيات -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div style="font-size: 2rem; color: var(--purple); margin-bottom: 8px;">⚙️</div>
+                        <div class="stat-value" id="totalMachines">24</div>
+                        <div class="stat-label">إجمالي الآلات</div>
+                    </div>
+                    <div class="stat-card">
+                        <div style="font-size: 2rem; color: #10b981; margin-bottom: 8px;">✅</div>
+                        <div class="stat-value" id="activeMachines">18</div>
+                        <div class="stat-label">آلات نشطة</div>
+                    </div>
+                    <div class="stat-card">
+                        <div style="font-size: 2rem; color: #ef4444; margin-bottom: 8px;">⚠️</div>
+                        <div class="stat-value" id="brokenMachines">3</div>
+                        <div class="stat-label">أعطال حالية</div>
+                    </div>
+                    <div class="stat-card">
+                        <div style="font-size: 2rem; color: #f59e0b; margin-bottom: 8px;">🔄</div>
+                        <div class="stat-value" id="maintenanceRate">92%</div>
+                        <div class="stat-label">نسبة الجاهزية</div>
+                    </div>
+                </div>
+                
+                <!-- الرسوم البيانية -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                    <!-- الرسم البياني الأول مع خيار التبديل -->
+                    <div class="card">
+                        <div class="chart-header">
+                            <h3 style="color: white;">حالة الآلات</h3>
+                            <div class="chart-type-selector" id="chartTypeSelector1">
+                                <button class="chart-type-btn active" data-type="doughnut" data-chart="1">دائري</button>
+                                <button class="chart-type-btn" data-type="bar" data-chart="1">أعمدة</button>
+                            </div>
+                        </div>
+                        <div style="height: 300px;">
+                            <canvas id="machineStatusChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- الرسم البياني الثاني مع خيار التبديل -->
+                    <div class="card">
+                        <div class="chart-header">
+                            <h3 style="color: white;">أعطال الأسبوع</h3>
+                            <div class="chart-type-selector" id="chartTypeSelector2">
+                                <button class="chart-type-btn active" data-type="bar" data-chart="2">أعمدة</button>
+                                <button class="chart-type-btn" data-type="line" data-chart="2">خطي</button>
+                            </div>
+                        </div>
+                        <div style="height: 300px;">
+                            <canvas id="weeklyIssuesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- آخر البلاغات -->
+                <div class="card" style="margin-top: 24px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3 style="color: white;">آخر البلاغات</h3>
+                        <a href="pages/interventions.html" class="btn btn-outline" style="padding: 8px 16px;">عرض الكل</a>
+                    </div>
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>الآلة</th>
+                                    <th>المشكلة</th>
+                                    <th>الأولوية</th>
+                                    <th>الحالة</th>
+                                    <th>التاريخ</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recentInterventions"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- تذييل -->
+        <div class="footer">
+            © 2025 GMAO PRO - نظام إدارة الصيانة المتكامل | جميع الحقوق محفوظة
+        </div>
+    </div>
+    
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/charts.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
