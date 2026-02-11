@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>GMAO Pro | الآلات</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <div class="app">
+        <nav class="navbar">
+            <div class="logo">🏭 GMAO PRO</div>
+            <div style="display: flex; gap: 16px;">
+                <span id="userName" style="color: var(--gray);"></span>
+                <button onclick="logout()" class="btn btn-outline" style="padding: 8px 16px;">تسجيل خروج</button>
+            </div>
+        </nav>
+
+        <div style="display: grid; grid-template-columns: 260px 1fr; gap: 24px;">
+            <div class="sidebar">
+                <div class="sidebar-item">📊 لوحة التحكم</div>
+                <div class="sidebar-item active">⚙️ الآلات</div>
+                <div class="sidebar-item">🔧 البلاغات</div>
+                <div class="sidebar-item">📅 الصيانة الوقائية</div>
+                <div class="sidebar-item">📦 قطع الغيار</div>
+                <div class="sidebar-item">👥 الفنيين</div>
+                <div class="sidebar-item">📍 المواقع</div>
+                <div class="sidebar-item">🤝 الموردين</div>
+                <div class="sidebar-item">📈 التقارير</div>
+                <div class="sidebar-item">⚙️ الإعدادات</div>
+            </div>
+
+            <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                    <h1 style="color: white;">⚙️ إدارة الآلات</h1>
+                    <button class="btn btn-primary" onclick="openAddMachineModal()">+ إضافة آلة جديدة</button>
+                </div>
+
+                <div class="card">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>اسم الآلة</th>
+                                    <th>الموقع</th>
+                                    <th>الحالة</th>
+                                    <th>آخر صيانة</th>
+                                    <th>الصيانة القادمة</th>
+                                    <th>الكفاءة</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="machinesTableBody">
+                                <!-- البيانات تجي من JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/auth.js"></script>
+    <script>
+        // بيانات الآلات
+        let machines = [
+            { id: 1, name: 'خلاطة خرسانة', site: 'الخلاطات', status: 'نشط', statusClass: 'status-active', lastMaintenance: '2025-02-01', nextMaintenance: '2025-03-01', efficiency: 92 },
+            { id: 2, name: 'فرن حراري', site: 'الإنتاج', status: 'عطل', statusClass: 'status-danger', lastMaintenance: '2025-01-15', nextMaintenance: '2025-02-15', efficiency: 23 },
+            { id: 3, name: 'ضاغط هواء', site: 'المكابس', status: 'صيانة', statusClass: 'status-warning', lastMaintenance: '2025-02-05', nextMaintenance: '2025-02-20', efficiency: 45 },
+            { id: 4, name: 'سير ناقل', site: 'التعبئة', status: 'نشط', statusClass: 'status-active', lastMaintenance: '2025-02-10', nextMaintenance: '2025-03-10', efficiency: 78 },
+            { id: 5, name: 'مولد كهربائي', site: 'الطوارئ', status: 'نشط', statusClass: 'status-active', lastMaintenance: '2025-01-28', nextMaintenance: '2025-04-28', efficiency: 88 }
+        ];
+
+        function displayMachines() {
+            let html = '';
+            machines.forEach(m => {
+                html += `<tr>
+                    <td>${m.id}</td>
+                    <td><strong>${m.name}</strong></td>
+                    <td>${m.site}</td>
+                    <td><span class="status-badge ${m.statusClass}">${m.status}</span></td>
+                    <td>${m.lastMaintenance}</td>
+                    <td>${m.nextMaintenance}</td>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span>${m.efficiency}%</span>
+                            <div style="width: 60px; height: 6px; background: rgba(139,92,246,0.2); border-radius: 3px;">
+                                <div style="width: ${m.efficiency}%; height: 6px; background: ${m.efficiency > 70 ? '#10b981' : m.efficiency > 40 ? '#f59e0b' : '#ef4444'}; border-radius: 3px;"></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="btn btn-outline" style="padding: 4px 12px;" onclick="editMachine(${m.id})">تعديل</button>
+                        <button class="btn btn-outline" style="padding: 4px 12px; border-color: #ef4444;" onclick="deleteMachine(${m.id})">حذف</button>
+                    </td>
+                </tr>`;
+            });
+            document.getElementById('machinesTableBody').innerHTML = html;
+        }
+
+        function deleteMachine(id) {
+            if(confirm('هل أنت متأكد من حذف الآلة؟')) {
+                machines = machines.filter(m => m.id !== id);
+                displayMachines();
+            }
+        }
+
+        displayMachines();
+    </script>
+</body>
+</html>
