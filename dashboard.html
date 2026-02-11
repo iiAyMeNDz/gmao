@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aymen GMAO | لوحة التحكم</title>
+    <link rel="stylesheet" href="assets/css/style-fancy.css">
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="app">
+        <!-- القائمة العلوية الفاخرة -->
+        <nav class="navbar-fancy">
+            <div class="logo-fancy">Aymen GMAO</div>
+            
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <!-- القائمة المنسدلة -->
+                <div class="menu-container">
+                    <div class="menu-trigger">
+                        <span>☰</span>
+                        <span data-i18n="dashboard">القائمة</span>
+                    </div>
+                    <div class="menu-dropdown">
+                        <a href="dashboard.html" class="menu-item" data-i18n="dashboard">📊 لوحة التحكم</a>
+                        <a href="pages/machines.html" class="menu-item" data-i18n="machines">⚙️ الآلات</a>
+                        <a href="pages/interventions.html" class="menu-item" data-i18n="interventions">🔧 البلاغات</a>
+                        <a href="pages/preventive.html" class="menu-item" data-i18n="preventive">📅 الصيانة الوقائية</a>
+                        <a href="pages/spare-parts.html" class="menu-item" data-i18n="spareParts">📦 قطع الغيار</a>
+                        <a href="pages/technicians.html" class="menu-item" data-i18n="technicians">👥 الفنيين</a>
+                        <a href="pages/sites.html" class="menu-item" data-i18n="sites">📍 المواقع</a>
+                        <a href="pages/suppliers.html" class="menu-item" data-i18n="suppliers">🤝 الموردين</a>
+                        <a href="pages/reports.html" class="menu-item" data-i18n="reports">📈 التقارير</a>
+                        <a href="pages/settings.html" class="menu-item" data-i18n="settings">⚙️ الإعدادات</a>
+                        <div style="height: 1px; background: rgba(139,92,246,0.1); margin: 8px 0;"></div>
+                        <div onclick="logout()" class="menu-item" data-i18n="logout">🚪 تسجيل خروج</div>
+                    </div>
+                </div>
+                
+                <!-- معلومات المستخدم -->
+                <div id="userInfo" style="min-width: 160px;"></div>
+                
+                <!-- أزرار اللغة -->
+                <div style="display: flex; gap: 8px;">
+                    <button onclick="setLanguage('ar')" class="lang-switch" style="padding: 8px 16px;">🇸🇪</button>
+                    <button onclick="setLanguage('en')" class="lang-switch" style="padding: 8px 16px;">🇬🇧</button>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- بطاقات الإحصائيات -->
+        <div class="stats-grid">
+            <div class="stat-luxury">
+                <div style="font-size: 2.5rem; color: var(--purple-rich); margin-bottom: 12px;">⚙️</div>
+                <div class="stat-value-luxury" id="totalMachines">24</div>
+                <div style="color: var(--gray-silver);" data-i18n="totalMachines">إجمالي الآلات</div>
+            </div>
+            <div class="stat-luxury">
+                <div style="font-size: 2.5rem; color: #10b981; margin-bottom: 12px;">✅</div>
+                <div class="stat-value-luxury" id="activeMachines">18</div>
+                <div style="color: var(--gray-silver);" data-i18n="activeMachines">آلات نشطة</div>
+            </div>
+            <div class="stat-luxury">
+                <div style="font-size: 2.5rem; color: #ef4444; margin-bottom: 12px;">⚠️</div>
+                <div class="stat-value-luxury" id="brokenMachines">3</div>
+                <div style="color: var(--gray-silver);" data-i18n="brokenMachines">أعطال حالية</div>
+            </div>
+            <div class="stat-luxury">
+                <div style="font-size: 2.5rem; color: #f59e0b; margin-bottom: 12px;">📊</div>
+                <div class="stat-value-luxury" id="maintenanceRate">92%</div>
+                <div style="color: var(--gray-silver);" data-i18n="maintenanceRate">نسبة الجاهزية</div>
+            </div>
+        </div>
+        
+        <!-- آخر البلاغات -->
+        <div class="card-luxury" style="margin-top: 32px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                <h2 style="color: white; font-size: 1.5rem;" data-i18n="interventions">🔧 آخر البلاغات</h2>
+                <a href="pages/interventions.html" class="btn-outline" style="text-decoration: none; padding: 10px 20px;" data-i18n="viewAll">عرض الكل</a>
+            </div>
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid var(--purple-rich);">
+                            <th style="padding: 16px; text-align: right; color: var(--purple-soft);" data-i18n="machine">الآلة</th>
+                            <th style="padding: 16px; text-align: right; color: var(--purple-soft);" data-i18n="issue">المشكلة</th>
+                            <th style="padding: 16px; text-align: right; color: var(--purple-soft);" data-i18n="priority">الأولوية</th>
+                            <th style="padding: 16px; text-align: right; color: var(--purple-soft);" data-i18n="status">الحالة</th>
+                            <th style="padding: 16px; text-align: right; color: var(--purple-soft);" data-i18n="date">التاريخ</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recentInterventions"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
