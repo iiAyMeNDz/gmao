@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aymen GMAO | الآلات</title>
+    <link rel="stylesheet" href="../assets/css/style-fancy.css">
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="app">
+        <nav class="navbar-fancy">
+            <div class="logo-fancy">Aymen GMAO</div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <div class="menu-container">
+                    <div class="menu-trigger">
+                        <span>☰</span>
+                        <span data-i18n="dashboard">القائمة</span>
+                    </div>
+                    <div class="menu-dropdown">
+                        <a href="../dashboard.html" class="menu-item" data-i18n="dashboard">📊 لوحة التحكم</a>
+                        <a href="machines.html" class="menu-item" data-i18n="machines">⚙️ الآلات</a>
+                        <a href="interventions.html" class="menu-item" data-i18n="interventions">🔧 البلاغات</a>
+                        <a href="preventive.html" class="menu-item" data-i18n="preventive">📅 الصيانة الوقائية</a>
+                        <a href="spare-parts.html" class="menu-item" data-i18n="spareParts">📦 قطع الغيار</a>
+                        <a href="technicians.html" class="menu-item" data-i18n="technicians">👥 الفنيين</a>
+                        <a href="sites.html" class="menu-item" data-i18n="sites">📍 المواقع</a>
+                        <a href="suppliers.html" class="menu-item" data-i18n="suppliers">🤝 الموردين</a>
+                        <a href="reports.html" class="menu-item" data-i18n="reports">📈 التقارير</a>
+                        <a href="settings.html" class="menu-item" data-i18n="settings">⚙️ الإعدادات</a>
+                        <div style="height: 1px; background: rgba(139,92,246,0.1); margin: 8px 0;"></div>
+                        <div onclick="logout()" class="menu-item" data-i18n="logout">🚪 تسجيل خروج</div>
+                    </div>
+                </div>
+                
+                <div id="userInfo" style="min-width: 160px;"></div>
+                
+                <div style="display: flex; gap: 8px;">
+                    <button onclick="setLanguage('ar')" class="lang-switch" style="padding: 8px 16px;">🇸🇪</button>
+                    <button onclick="setLanguage('en')" class="lang-switch" style="padding: 8px 16px;">🇬🇧</button>
+                </div>
+            </div>
+        </nav>
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;">
+            <h1 style="color: white; font-size: 2rem;">⚙️ <span data-i18n="machines">الآلات</span></h1>
+            <button class="btn-primary" data-i18n="addMachine">+ إضافة آلة جديدة</button>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 28px;">
+            <!-- بطاقة آلة 1 -->
+            <div class="card-luxury">
+                <div style="display: flex; justify-content: space-between; align-items: start;">
+                    <div>
+                        <span style="background: var(--purple-rich); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem;">#MC-101</span>
+                        <h2 style="color: white; margin: 16px 0 8px; font-size: 1.6rem;">خلاطة خرسانة</h2>
+                        <p style="color: var(--gray-silver);">📍 موقع الخلاطات</p>
+                    </div>
+                    <span style="font-size: 2.8rem;">⚙️</span>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0;">
+                    <div>
+                        <div style="color: var(--gray-silver);" data-i18n="efficiency">الكفاءة</div>
+                        <div style="font-size: 2rem; font-weight: 800; color: #10b981;">92%</div>
+                    </div>
+                    <div>
+                        <div style="color: var(--gray-silver);" data-i18n="status">الحالة</div>
+                        <span class="status-badge status-active" data-i18n="active">نشط</span>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 16px;">
+                    <button class="btn-primary" style="flex: 1;" data-i18n="reportIssue">تسجيل عطل</button>
+                    <button class="btn-outline" style="flex: 1;" data-i18n="schedule">جدول صيانة</button>
+                </div>
+            </div>
+            
+            <!-- بطاقة آلة 2 -->
+            <div class="card-luxury">
+                <div style="display: flex; justify-content: space-between; align-items: start;">
+                    <div>
+                        <span style="background: var(--purple-rich); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem;">#FN-205</span>
+                        <h2 style="color: white; margin: 16px 0 8px; font-size: 1.6rem;">فرن حراري</h2>
+                        <p style="color: var(--gray-silver);">📍 خط الإنتاج</p>
+                    </div>
+                    <span style="font-size: 2.8rem;">🔥</span>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0;">
+                    <div>
+                        <div style="color: var(--gray-silver);" data-i18n="efficiency">الكفاءة</div>
+                        <div style="font-size: 2rem; font-weight: 800; color: #ef4444;">23%</div>
+                    </div>
+                    <div>
+                        <div style="color: var(--gray-silver);" data-i18n="status">الحالة</div>
+                        <span class="status-badge status-danger" data-i18n="broken">عطل</span>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 16px;">
+                    <button class="btn-primary" style="flex: 1;" data-i18n="reportIssue">تسجيل عطل</button>
+                    <button class="btn-outline" style="flex: 1;" data-i18n="schedule">جدول صيانة</button>
+                </div>
+            </div>
+            
+            <!-- بطاقة آلة 3 -->
+            <div class="card-luxury">
+                <div style="display: flex; justify-content: space-between; align-items: start;">
+                    <div>
+                        <span style="background: var(--purple-rich); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem;">#CP-303</span>
+                        <h2 style="color: white; margin: 16px 0 8px; font-size: 1.6rem;">ضاغط هواء</h2>
+                        <p style="color: var(--gray-silver);">📍 غرفة المكابس</p>
+                    </div>
+                    <span style="font-size: 2.8rem;">💨</span>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0;">
+                    <div>
+                        <div style="color: var(--gray-silver);" data-i18n="efficiency">الكفاءة</div>
+                        <div style="font-size: 2rem; font-weight: 800; color: #f59e0b;">45%</div>
+                    </div>
+                    <div>
+                        <div style="color: var(--gray-silver);" data-i18n="status">الحالة</div>
+                        <span class="status-badge status-warning" data-i18n="maintenance">صيانة</span>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 16px;">
+                    <button class="btn-primary" style="flex: 1;" data-i18n="reportIssue">تسجيل عطل</button>
+                    <button class="btn-outline" style="flex: 1;" data-i18n="schedule">جدول صيانة</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../assets/js/i18n.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>
