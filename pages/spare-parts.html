@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>GMAO Pro | قطع الغيار</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <div class="app">
+        <nav class="navbar">
+            <div class="logo">🏭 GMAO PRO</div>
+            <div><button onclick="logout()" class="btn btn-outline">تسجيل خروج</button></div>
+        </nav>
+
+        <div style="display: grid; grid-template-columns: 260px 1fr; gap: 24px;">
+            <div class="sidebar">
+                <div class="sidebar-item">📊 لوحة التحكم</div>
+                <div class="sidebar-item">⚙️ الآلات</div>
+                <div class="sidebar-item">🔧 البلاغات</div>
+                <div class="sidebar-item">📅 الصيانة الوقائية</div>
+                <div class="sidebar-item active">📦 قطع الغيار</div>
+                <div class="sidebar-item">👥 الفنيين</div>
+                <div class="sidebar-item">📍 المواقع</div>
+                <div class="sidebar-item">🤝 الموردين</div>
+                <div class="sidebar-item">📈 التقارير</div>
+                <div class="sidebar-item">⚙️ الإعدادات</div>
+            </div>
+
+            <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 24px;">
+                    <h1 style="color: white;">📦 إدارة قطع الغيار</h1>
+                    <button class="btn btn-primary">+ إضافة قطعة</button>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div style="font-size: 2rem; color: var(--purple);">156</div>
+                        <div>إجمالي القطع</div>
+                    </div>
+                    <div class="stat-card">
+                        <div style="font-size: 2rem; color: #ef4444;">8</div>
+                        <div>تحت الحد الأدنى</div>
+                    </div>
+                    <div class="stat-card">
+                        <div style="font-size: 2rem; color: #10b981;">1,240</div>
+                        <div>قيمة المخزون (ريال)</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>كود</th>
+                                    <th>اسم القطعة</th>
+                                    <th>الآلات المتوافقة</th>
+                                    <th>الكمية</th>
+                                    <th>الحد الأدنى</th>
+                                    <th>الحالة</th>
+                                    <th>المورد</th>
+                                    <th>السعر</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#BL-101</td>
+                                    <td>سير ناقل 2م</td>
+                                    <td>سير ناقل</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td><span class="status-badge status-danger">منخفض</span></td>
+                                    <td>مؤسسة النقل</td>
+                                    <td>320 ر.س</td>
+                                    <td><button class="btn btn-outline">صرف</button></td>
+                                </tr>
+                                <tr>
+                                    <td>#FL-205</td>
+                                    <td>فلتر زيت</td>
+                                    <td>ضاغط هواء</td>
+                                    <td>15</td>
+                                    <td>10</td>
+                                    <td><span class="status-badge status-active">جيد</span></td>
+                                    <td>شركة الفلاتر</td>
+                                    <td>85 ر.س</td>
+                                    <td><button class="btn btn-outline">صرف</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/js/auth.js"></script>
+</body>
+</html>
