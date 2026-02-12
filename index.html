@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>GMAO | نظام الصيانة المتكامل</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- الخلفية المتحركة -->
+    <div class="bg-gradient"></div>
+    <div class="bg-particles"></div>
+    
+    <div class="app-wrapper">
+        <!-- الشريط الجانبي للهاتف - يظهر عند الحاجة -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="menu-overlay"></label>
+        
+        <aside class="sidebar glass">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">⚙️</span>
+                    <h2>GMAO<span class="dot">.</span></h2>
+                </div>
+                <label for="menu-toggle" class="close-sidebar">✕</label>
+            </div>
+            
+            <div class="user-profile">
+                <div class="avatar-large">
+                    <span>أ</span>
+                </div>
+                <div class="user-info">
+                    <h4>أحمد محمد</h4>
+                    <p>مدير الصيانة</p>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#">
+                            <span class="nav-icon">📊</span>
+                            <span>لوحة التحكم</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="nav-icon">🛠️</span>
+                            <span>المعدات</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="nav-icon">🔧</span>
+                            <span>الصيانة</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="nav-icon">📦</span>
+                            <span>قطع الغيار</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="nav-icon">👥</span>
+                            <span>الفريق</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="nav-icon">📈</span>
+                            <span>التقارير</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="nav-icon">⚙️</span>
+                            <span>الإعدادات</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="notification-badge">
+                    <span class="notification-icon">🔔</span>
+                    <span class="badge-count">3</span>
+                </div>
+                <div class="logout">
+                    <span class="nav-icon">🚪</span>
+                    <span>تسجيل خروج</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- المحتوى الرئيسي -->
+        <main class="main-content">
+            <!-- الهيدر للجوال والتابلت -->
+            <header class="mobile-header glass">
+                <label for="menu-toggle" class="menu-btn">☰</label>
+                <div class="mobile-logo">
+                    <span class="logo-icon">⚙️</span>
+                    <h2>GMAO</h2>
+                </div>
+                <div class="mobile-notification">
+                    <span>🔔</span>
+                    <span class="badge-count">3</span>
+                </div>
+            </header>
+
+            <!-- الترحيب والإحصائيات السريعة -->
+            <section class="welcome-section">
+                <div class="welcome-text">
+                    <h1>مرحباً بك، أحمد 👋</h1>
+                    <p>نظرة عامة على حالة نظام الصيانة اليوم</p>
+                </div>
+                <div class="date-box glass">
+                    <span class="date-icon">📅</span>
+                    <span id="current-date"></span>
+                </div>
+            </section>
+
+            <!-- بطاقات الإحصائيات -->
+            <section class="stats-grid">
+                <div class="stat-card glass">
+                    <div class="stat-icon-wrapper">
+                        <span class="stat-icon">🛠️</span>
+                    </div>
+                    <div class="stat-details">
+                        <span class="stat-label">المعدات النشطة</span>
+                        <div class="stat-value-group">
+                            <span class="stat-number">248</span>
+                            <span class="stat-trend positive">↑ 12%</span>
+                        </div>
+                        <span class="stat-sub">من أصل 312 معدة</span>
+                    </div>
+                </div>
+
+                <div class="stat-card glass">
+                    <div class="stat-icon-wrapper warning">
+                        <span class="stat-icon">⚠️</span>
+                    </div>
+                    <div class="stat-details">
+                        <span class="stat-label">أعطال معلقة</span>
+                        <div class="stat-value-group">
+                            <span class="stat-number">23</span>
+                            <span class="stat-trend negative">↓ 5%</span>
+                        </div>
+                        <span class="stat-sub">4 عاجلة</span>
+                    </div>
+                </div>
+
+                <div class="stat-card glass">
+                    <div class="stat-icon-wrapper success">
+                        <span class="stat-icon">✅</span>
+                    </div>
+                    <div class="stat-details">
+                        <span class="stat-label">صيانة مكتملة</span>
+                        <div class="stat-value-group">
+                            <span class="stat-number">1,284</span>
+                            <span class="stat-trend positive">↑ 8%</span>
+                        </div>
+                        <span class="stat-sub">هذا الشهر</span>
+                    </div>
+                </div>
+
+                <div class="stat-card glass">
+                    <div class="stat-icon-wrapper">
+                        <span class="stat-icon">📦</span>
+                    </div>
+                    <div class="stat-details">
+                        <span class="stat-label">قطع الغيار</span>
+                        <div class="stat-value-group">
+                            <span class="stat-number">3,421</span>
+                            <span class="stat-trend">→ 2%</span>
+                        </div>
+                        <span class="stat-sub">13 قطع منخفضة</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- الرسم البياني وقائمة المهام -->
+            <section class="dashboard-grid">
+                <!-- الرسم البياني -->
+                <div class="chart-card glass">
+                    <div class="card-header">
+                        <div class="header-title">
+                            <h3>نشاط الصيانة</h3>
+                            <span class="badge">آخر 7 أيام</span>
+                        </div>
+                        <div class="chart-actions">
+                            <button class="chart-btn active">أسبوعي</button>
+                            <button class="chart-btn">شهري</button>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="maintenanceChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- المهام العاجلة -->
+                <div class="tasks-card glass">
+                    <div class="card-header">
+                        <div class="header-title">
+                            <h3>مهام عاجلة</h3>
+                            <span class="badge urgent">4 مهام</span>
+                        </div>
+                        <a href="#" class="view-all">عرض الكل</a>
+                    </div>
+                    <div class="tasks-list">
+                        <div class="task-item urgent">
+                            <div class="task-priority"></div>
+                            <div class="task-content">
+                                <div class="task-header">
+                                    <span class="task-title">مكبس هيدروليكي - عطل مفاجئ</span>
+                                    <span class="task-time">منذ 15 د</span>
+                                </div>
+                                <div class="task-meta">
+                                    <span class="task-location">📍 خط الإنتاج 2</span>
+                                    <span class="task-assignee">👤 خالد الأحمد</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-item high">
+                            <div class="task-priority"></div>
+                            <div class="task-content">
+                                <div class="task-header">
+                                    <span class="task-title">سير ناقل - توقف مفاجئ</span>
+                                    <span class="task-time">منذ 45 د</span>
+                                </div>
+                                <div class="task-meta">
+                                    <span class="task-location">📍 خط التعبئة</span>
+                                    <span class="task-assignee">👤 محمد علي</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-item medium">
+                            <div class="task-priority"></div>
+                            <div class="task-content">
+                                <div class="task-header">
+                                    <span class="task-title">ماكينة تعبئة - صيانة دورية</span>
+                                    <span class="task-time">منذ ساعتين</span>
+                                </div>
+                                <div class="task-meta">
+                                    <span class="task-location">📍 التعبئة 3</span>
+                                    <span class="task-assignee">👤 سارة أحمد</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-item low">
+                            <div class="task-priority"></div>
+                            <div class="task-content">
+                                <div class="task-header">
+                                    <span class="task-title">خلاط صناعي - تغيير زيت</span>
+                                    <span class="task-time">منذ 5 س</span>
+                                </div>
+                                <div class="task-meta">
+                                    <span class="task-location">📍 الخلاطات</span>
+                                    <span class="task-assignee">👤 عمر حسن</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- حالة المعدات -->
+                <div class="equipment-status-card glass">
+                    <div class="card-header">
+                        <div class="header-title">
+                            <h3>حالة المعدات</h3>
+                            <span class="badge live">مباشر</span>
+                        </div>
+                        <span class="equipment-stats">28 عاملة | 4 صيانة | 2 متوقفة</span>
+                    </div>
+                    <div class="equipment-progress">
+                        <div class="progress-item">
+                            <div class="progress-info">
+                                <span class="progress-label">ضاغط هواء</span>
+                                <span class="progress-value">%98</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 98%"></div>
+                            </div>
+                            <span class="progress-status online">يعمل بكفاءة</span>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-info">
+                                <span class="progress-label">مبرد مياه</span>
+                                <span class="progress-value">%65</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill warning" style="width: 65%"></div>
+                            </div>
+                            <span class="progress-status warning">يحتاج صيانة</span>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-info">
+                                <span class="progress-label">فرن صناعي</span>
+                                <span class="progress-value">%0</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill offline" style="width: 0%"></div>
+                            </div>
+                            <span class="progress-status offline">متوقف</span>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-info">
+                                <span class="progress-label">روبوت تعبئة</span>
+                                <span class="progress-value">%100</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%"></div>
+                            </div>
+                            <span class="progress-status online">يعمل بكفاءة</span>
+                        </div>
+                    </div>
+                    <a href="#" class="view-equipment">عرض كل المعدات →</a>
+                </div>
+            </section>
+
+            <!-- جدول الصيانة القادمة -->
+            <section class="maintenance-schedule glass">
+                <div class="schedule-header">
+                    <div class="header-title">
+                        <h3>مهام الصيانة القادمة</h3>
+                        <span class="badge">هذا الأسبوع • 12 مهمة</span>
+                    </div>
+                    <button class="add-task-btn">
+                        <span>+</span>
+                        <span>إضافة مهمة</span>
+                    </button>
+                </div>
+
+                <!-- جدول للشاشات الكبيرة -->
+                <div class="desktop-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>المعدة</th>
+                                <th>نوع الصيانة</th>
+                                <th>التاريخ</th>
+                                <th>الوقت</th>
+                                <th>المسؤول</th>
+                                <th>الحالة</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="equipment-cell">
+                                        <span class="equipment-icon">⚙️</span>
+                                        مخرطة CNC
+                                    </div>
+                                </td>
+                                <td><span class="maintenance-type preventive">وقائية</span></td>
+                                <td>2024-01-25</td>
+                                <td>10:00 ص</td>
+                                <td>مهندس أحمد</td>
+                                <td><span class="status-badge scheduled">مجدولة</span></td>
+                                <td>
+                                    <button class="action-btn">✏️</button>
+                                    <button class="action-btn">🗑️</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="equipment-cell">
+                                        <span class="equipment-icon">🏗️</span>
+                                        ونش علوي
+                                    </div>
+                                </td>
+                                <td><span class="maintenance-type corrective">تصحيحية</span></td>
+                                <td>2024-01-26</td>
+                                <td>11:30 ص</td>
+                                <td>فني خالد</td>
+                                <td><span class="status-badge in-progress">قيد التنفيذ</span></td>
+                                <td>
+                                    <button class="action-btn">✏️</button>
+                                    <button class="action-btn">🗑️</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="equipment-cell">
+                                        <span class="equipment-icon">🔥</span>
+                                        ماكينة لحام
+                                    </div>
+                                </td>
+                                <td><span class="maintenance-type preventive">وقائية</span></td>
+                                <td>2024-01-27</td>
+                                <td>09:00 ص</td>
+                                <td>مهندس سارة</td>
+                                <td><span class="status-badge scheduled">مجدولة</span></td>
+                                <td>
+                                    <button class="action-btn">✏️</button>
+                                    <button class="action-btn">🗑️</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="equipment-cell">
+                                        <span class="equipment-icon">💨</span>
+                                        ضاغط هواء
+                                    </div>
+                                </td>
+                                <td><span class="maintenance-type predictive">تنبؤية</span></td>
+                                <td>2024-01-28</td>
+                                <td>02:00 م</td>
+                                <td>فني عمر</td>
+                                <td><span class="status-badge scheduled">مجدولة</span></td>
+                                <td>
+                                    <button class="action-btn">✏️</button>
+                                    <button class="action-btn">🗑️</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- بطاقات للشاشات الصغيرة -->
+                <div class="mobile-cards">
+                    <div class="maintenance-card glass">
+                        <div class="maintenance-card-header">
+                            <div class="equipment-info">
+                                <span class="equipment-icon">⚙️</span>
+                                <div>
+                                    <h4>مخرطة CNC</h4>
+                                    <span class="maintenance-type preventive">وقائية</span>
+                                </div>
+                            </div>
+                            <span class="status-badge scheduled">مجدولة</span>
+                        </div>
+                        <div class="maintenance-card-body">
+                            <div class="info-row">
+                                <span>📅 2024-01-25</span>
+                                <span>⏰ 10:00 ص</span>
+                            </div>
+                            <div class="info-row">
+                                <span>👤 مهندس أحمد</span>
+                                <div class="card-actions">
+                                    <button class="action-btn">✏️</button>
+                                    <button class="action-btn">🗑️</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="maintenance-card glass">
+                        <div class="maintenance-card-header">
+                            <div class="equipment-info">
+                                <span class="equipment-icon">🏗️</span>
+                                <div>
+                                    <h4>ونش علوي</h4>
+                                    <span class="maintenance-type corrective">تصحيحية</span>
+                                </div>
+                            </div>
+                            <span class="status-badge in-progress">قيد التنفيذ</span>
+                        </div>
+                        <div class="maintenance-card-body">
+                            <div class="info-row">
+                                <span>📅 2024-01-26</span>
+                                <span>⏰ 11:30 ص</span>
+                            </div>
+                            <div class="info-row">
+                                <span>👤 فني خالد</span>
+                                <div class="card-actions">
+                                    <button class="action-btn">✏️</button>
+                                    <button class="action-btn">🗑️</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // عرض التاريخ الحالي
+        const date = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').textContent = date.toLocaleDateString('ar-SA', options);
+
+        // رسم بياني
+        const ctx = document.getElementById('maintenanceChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['السبت', 'الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة'],
+                datasets: [{
+                    label: 'مهام الصيانة',
+                    data: [12, 19, 15, 17, 14, 13, 8],
+                    borderColor: '#8b5cf6',
+                    backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#a78bfa',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 5,
+                    pointHoverRadius: 8,
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: '#1f1a2e',
+                        titleColor: '#fff',
+                        bodyColor: '#d1d5db',
+                        borderColor: '#8b5cf6',
+                        borderWidth: 1
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(139, 92, 246, 0.1)'
+                        },
+                        ticks: {
+                            color: '#9ca3af'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            color: '#9ca3af'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
